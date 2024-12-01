@@ -1,5 +1,3 @@
-from itertools import count
-
 calls = 0
 
 
@@ -8,20 +6,13 @@ def count_calls():
     calls += 1
 
 
-def string_info():
+def string_info(string):
     count_calls()
-    string = 'Anakonda'
-    string_2 = len(string)
-    string_3 = string.upper()
-    string_4 = string.lower()
-    string = tuple([string_2, string_3, string_4])
-    return string
+    return [len(string), string.upper(), string.lower()]
 
 
-def is_contains():
+def is_contains(string, list_to_search):
     count_calls()
-    string = 'Meymun'
-    list_to_search = ['mun', 'mEyMuN', 'nuMYem']
     list_to_search = [s.lower() for s in list_to_search]
     if string.lower() in list_to_search:
         return True
@@ -29,6 +20,6 @@ def is_contains():
         return False
 
 
-print(string_info())
-print(is_contains())
+print(string_info('Anakonda'))
+print(is_contains('Meymun', ['mun', 'mEyMuN', 'nuMYem']))
 print(calls)
