@@ -21,21 +21,24 @@ class House:
             self.number_of_floors += value.number_of_floors
         elif isinstance(value, int):
             self.number_of_floors += value
-        return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
+        return self.number_of_floors
 
     def __iadd__(self, value):
         self.__add__(value)
-        return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
+        return self.number_of_floors
 
     def __radd__(self, value):
         self.__add__(value)
-        return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
+        return self.number_of_floors
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors > other
 
     def __ge__(self, other):
         return self.__gt__(other) or self.__eq__(other)
