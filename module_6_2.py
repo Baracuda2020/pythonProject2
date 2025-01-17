@@ -1,6 +1,7 @@
 # Задача "Изменять нельзя получать"
 class Vehicle:
     __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+
     def __init__(self, owner, __model, __engine_power, __color):
         self.owner = owner
         self.__model = __model
@@ -23,9 +24,9 @@ class Vehicle:
         print(f'Владелец: {self.owner}')
 
     def set_color(self, new_color):
-        #for i in Vehicle.__COLOR_VARIANTS:
+        # for i in Vehicle.__COLOR_VARIANTS:
         if new_color.lower() in Vehicle.__COLOR_VARIANTS:
-            new_color = self.__color
+            self.__color = new_color
             print(self.get_color())
         else:
             print(f'Нельзя сменить цвет на {new_color}')
@@ -34,7 +35,6 @@ class Vehicle:
 class Sedan(Vehicle):
     __PASSENGERS_LIMIT = 5
     pass
-
 
 
 vehicle1 = Sedan('Fedos', 'Toyota Mark II', 500, 'blue')
@@ -48,5 +48,4 @@ vehicle1.set_color('BLACK')
 vehicle1.owner = 'Vasyok'
 
 # Проверяем что поменялось
-
 vehicle1.print_info()
