@@ -39,11 +39,12 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
 
     def dive_in(self, dz):
-        z = self._cords[2] + dz * abs(self.speed/2)
-        return z
+        z = self._cords[2] - dz * abs(self.speed/2)
+        z1 = z + dz * abs(self.speed)
+        return z1
 
 class PoisonousAnimal(Animal):
-    _DEGREE_OF_DANGER = 3
+    _DEGREE_OF_DANGER = 8
 
 
 class Duckbill(PoisonousAnimal, AquaticAnimal, Bird):
